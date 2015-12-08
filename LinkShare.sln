@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkShare.UI", "LinkShare.UI\LinkShare.UI.csproj", "{9A5DF1C9-8D6E-420A-97E0-51FE5C734EE8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkShare.DAL", "LinkShare.DAL\LinkShare.DAL.csproj", "{827B6921-43E6-4258-84EF-BB785AF6E492}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkShare.BOL", "LinkShare.BOL\LinkShare.BOL.csproj", "{D7F1CC65-B3EA-4EBF-BE86-48FC85C885D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkShare.BLL", "LinkShare.BLL\LinkShare.BLL.csproj", "{269499FA-C208-4CBE-8094-991E251156B7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9A5DF1C9-8D6E-420A-97E0-51FE5C734EE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A5DF1C9-8D6E-420A-97E0-51FE5C734EE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A5DF1C9-8D6E-420A-97E0-51FE5C734EE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A5DF1C9-8D6E-420A-97E0-51FE5C734EE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{827B6921-43E6-4258-84EF-BB785AF6E492}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{827B6921-43E6-4258-84EF-BB785AF6E492}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{827B6921-43E6-4258-84EF-BB785AF6E492}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{827B6921-43E6-4258-84EF-BB785AF6E492}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7F1CC65-B3EA-4EBF-BE86-48FC85C885D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7F1CC65-B3EA-4EBF-BE86-48FC85C885D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7F1CC65-B3EA-4EBF-BE86-48FC85C885D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7F1CC65-B3EA-4EBF-BE86-48FC85C885D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{269499FA-C208-4CBE-8094-991E251156B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{269499FA-C208-4CBE-8094-991E251156B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{269499FA-C208-4CBE-8094-991E251156B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{269499FA-C208-4CBE-8094-991E251156B7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,9 @@
+bin/
+obj/
+old/
+packages/
+App.config
+*.StyleCop
+*.Cache
+*.csproj.user
+*.suo

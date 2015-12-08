@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="39c28c9614c24084b5326d9c0579e7a6" Name="Diagram1">
+        <EntityTypeShape EntityType="LinkShareModel.AppUser" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LinkShareModel.Category" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LinkShareModel.Url" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="LinkShareModel.FK_Url_AppUser" ManuallyRouted="false" />
+        <AssociationConnector Association="LinkShareModel.FK_Url_Category" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

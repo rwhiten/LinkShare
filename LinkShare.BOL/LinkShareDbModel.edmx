@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="LinkShareModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AppUser">
+          <Key>
+            <PropertyRef Name="AppUserId" />
+          </Key>
+          <Property Name="AppUserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AppUserEmail" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Role" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CategoryDesc" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Url">
+          <Key>
+            <PropertyRef Name="UrlId" />
+          </Key>
+          <Property Name="UrlId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UrlTitle" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UrlLink" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UrlDesc" Type="varchar(max)" Nullable="false" />
+          <Property Name="CategoryId" Type="int" />
+          <Property Name="AppUserId" Type="int" />
+          <Property Name="IsApproved" Type="varchar" MaxLength="1" />
+        </EntityType>
+        <Association Name="FK_Url_AppUser">
+          <End Role="AppUser" Type="Self.AppUser" Multiplicity="0..1" />
+          <End Role="Url" Type="Self.Url" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AppUser">
+              <PropertyRef Name="AppUserId" />
+            </Principal>
+            <Dependent Role="Url">
+              <PropertyRef Name="AppUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Url_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Url" Type="Self.Url" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="Url">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="LinkShareModelStoreContainer">
+          <EntitySet Name="AppUser" EntityType="Self.AppUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Url" EntityType="Self.Url" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Url_AppUser" Association="Self.FK_Url_AppUser">
+            <End Role="AppUser" EntitySet="AppUser" />
+            <End Role="Url" EntitySet="Url" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Url_Category" Association="Self.FK_Url_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Url" EntitySet="Url" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LinkShareModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AppUser">
+          <Key>
+            <PropertyRef Name="AppUserId" />
+          </Key>
+          <Property Name="AppUserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AppUserEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Urls" Relationship="Self.FK_Url_AppUser" FromRole="AppUser" ToRole="Url" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CategoryDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Urls" Relationship="Self.FK_Url_Category" FromRole="Category" ToRole="Url" />
+        </EntityType>
+        <EntityType Name="Url">
+          <Key>
+            <PropertyRef Name="UrlId" />
+          </Key>
+          <Property Name="UrlId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UrlTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UrlLink" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UrlDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CategoryId" Type="Int32" />
+          <Property Name="AppUserId" Type="Int32" />
+          <Property Name="IsApproved" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AppUser" Relationship="Self.FK_Url_AppUser" FromRole="Url" ToRole="AppUser" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_Url_Category" FromRole="Url" ToRole="Category" />
+        </EntityType>
+        <Association Name="FK_Url_AppUser">
+          <End Role="AppUser" Type="Self.AppUser" Multiplicity="0..1" />
+          <End Role="Url" Type="Self.Url" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AppUser">
+              <PropertyRef Name="AppUserId" />
+            </Principal>
+            <Dependent Role="Url">
+              <PropertyRef Name="AppUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Url_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Url" Type="Self.Url" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="Url">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="LinkShareDb" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AppUsers" EntityType="Self.AppUser" />
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="Urls" EntityType="Self.Url" />
+          <AssociationSet Name="FK_Url_AppUser" Association="Self.FK_Url_AppUser">
+            <End Role="AppUser" EntitySet="AppUsers" />
+            <End Role="Url" EntitySet="Urls" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Url_Category" Association="Self.FK_Url_Category">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Url" EntitySet="Urls" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LinkShareModelStoreContainer" CdmEntityContainer="LinkShareDb">
+          <EntitySetMapping Name="AppUsers">
+            <EntityTypeMapping TypeName="LinkShareModel.AppUser">
+              <MappingFragment StoreEntitySet="AppUser">
+                <ScalarProperty Name="AppUserId" ColumnName="AppUserId" />
+                <ScalarProperty Name="AppUserEmail" ColumnName="AppUserEmail" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="LinkShareModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="CategoryDesc" ColumnName="CategoryDesc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Urls">
+            <EntityTypeMapping TypeName="LinkShareModel.Url">
+              <MappingFragment StoreEntitySet="Url">
+                <ScalarProperty Name="UrlId" ColumnName="UrlId" />
+                <ScalarProperty Name="UrlTitle" ColumnName="UrlTitle" />
+                <ScalarProperty Name="UrlLink" ColumnName="UrlLink" />
+                <ScalarProperty Name="UrlDesc" ColumnName="UrlDesc" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="AppUserId" ColumnName="AppUserId" />
+                <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
