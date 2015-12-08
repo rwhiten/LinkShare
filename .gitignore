@@ -2,6 +2,7 @@ bin/
 obj/
 old/
 packages/
+PublishProfiles/
 App.config
 *.StyleCop
 *.Cache

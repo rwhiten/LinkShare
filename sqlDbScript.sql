@@ -105,7 +105,7 @@ GO
 CREATE TABLE [dbo].[Url](
 	[UrlId] [int] IDENTITY(1,1) NOT NULL,
 	[UrlTitle] [varchar](50) NOT NULL,
-	[Url] [varchar](50) NOT NULL,
+	[UrlLink] [varchar](50) NOT NULL,
 	[UrlDesc] [varchar](max) NOT NULL,
 	[CategoryId] [int] NULL,
 	[AppUserId] [int] NULL,

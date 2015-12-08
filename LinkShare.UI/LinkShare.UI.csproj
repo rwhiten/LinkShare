@@ -152,6 +152,7 @@
     <Content Include="Areas\Common\Views\BrowseURL\Index.cshtml" />
     <Content Include="Areas\Common\Views\QuickSubmitURL\Index.cshtml" />
     <Content Include="Areas\Admin\Views\ApproveURL\pv_ApproveURL.cshtml" />
+    <None Include="Properties\PublishProfiles\LinkShare-smartasp.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
