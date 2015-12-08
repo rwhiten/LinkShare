@@ -5,4 +5,4 @@ This portal is purely developed on 3-layered architecture in VS2013 using the fo
 Asp.Net MVC, jQuery, BootStrap, C#.Net, Entity Framework and MS SQL Server
 ### Preview
 Preview is available at the following link
-[LinkShare](https://www.rwhiten.com/Demo/LinkShare)
+[LinkShare](http://www.rwhiten.com/Demo/LinkShare)
